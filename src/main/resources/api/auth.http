@@ -1,0 +1,25 @@
+### SIGN UP
+POST {{hostname}}/auth/signup
+Content-Type: application/json
+
+{
+	"username": "jondow",
+	"email": "jon@dow.com",
+	"password": "password"
+}
+
+### SIGN IN
+# @name data 
+POST {{hostname}}/auth/signin
+Content-Type: application/json
+
+{
+	"email": "jon@dow.com",
+	"password": "password"
+}
+
+@access_token = {{data.response.body.access_token}}
+
+### GET USER
+GET {{hostname}}/user/helloworld
+Authorization: Bearer {{access_token}}
